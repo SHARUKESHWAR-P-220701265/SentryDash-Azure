@@ -1,0 +1,57 @@
+[
+  {
+    "id": "A101",
+    "name": "Lecture Hall A101",
+    "block": "A",
+    "type": "theory",
+    "capacity": 60,
+    "currentCount": 61,
+    "internetAvailable": true,
+    "smartBoard": true,
+    "distance": 0
+  },
+  {
+    "id": "A102",
+    "name": "Computer Lab A102",
+    "block": "A",
+    "type": "lab",
+    "capacity": 30,
+    "currentCount": 1,
+    "internetAvailable": true,
+    "smartBoard": false,
+    "distance": 30
+  },
+  {
+    "id": "B201",
+    "name": "Lecture Hall B201",
+    "block": "B",
+    "type": "theory",
+    "capacity": 45,
+    "currentCount": 0,
+    "internetAvailable": true,
+    "smartBoard": false,
+    "distance": 100
+  },
+  {
+    "id": "TL01",
+    "name": "Tech Lounge 01",
+    "block": "Tech Lounge",
+    "type": "lab",
+    "capacity": 25,
+    "currentCount": 0,
+    "internetAvailable": true,
+    "smartBoard": true,
+    "distance": 200
+  },
+  {
+    "id": "IF01",
+    "name": "Idea Factory",
+    "block": "Idea Factory",
+    "type": "lab",
+    "capacity": 20,
+    "currentCount": 0,
+    "internetAvailable": true,
+    "smartBoard": true,
+    "distance": 250
+  }
+]
