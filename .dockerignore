@@ -1,0 +1,10 @@
+node_modules
+
+# Logs and env
+npm-debug.log
+.env
+*.log
+.DS_Store
+
+# Ignore data folder for build, we will mount it instead
+data/*.json 
