@@ -1,58 +1,26 @@
-name: Build and Deploy to Azure
+name: CI - Test Pipeline
 
 on:
   push:
-    branches:
-      - main  # Change to your default branch if different
-  workflow_dispatch:  # Allows manual trigger
-
-env:
-  ACR_NAME: sentrydash
-  IMAGE_NAME: sentrydash
-  RESOURCE_GROUP: sentrydash-rg
-  WEBAPP_NAME: sentrydash-backend
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build-and-test:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Log in to Azure
-      uses: azure/login@v2
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-    
-    - name: Log in to Azure Container Registry
-      run: |
-        az acr login --name ${{ env.ACR_NAME }}
-    
-    - name: Build and push Docker image
-      run: |
-        docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }} \
-                     -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest .
-        docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
-        docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:latest
-    
-    - name: Update Web App with new image
-      run: |
-        az webapp config container set \
-          --name ${{ env.WEBAPP_NAME }} \
-          --resource-group ${{ env.RESOURCE_GROUP }} \
-          --container-image-name ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
-    
-    - name: Restart Web App
-      run: |
-        az webapp restart \
-          --name ${{ env.WEBAPP_NAME }} \
-          --resource-group ${{ env.RESOURCE_GROUP }}
-    
-    - name: Deployment complete
-      run: |
-        echo "🎉 Deployment successful!"
-        echo "App URL: https://${{ env.WEBAPP_NAME }}.azurewebsites.net"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'   # or 20, depending on your project
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
