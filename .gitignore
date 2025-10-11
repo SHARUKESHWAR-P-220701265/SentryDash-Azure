@@ -1,4 +1,20 @@
+# Create/update .gitignore
+@"
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+
+# Node
 node_modules/
+npm-debug.log
+
+# Environment
 .env
 *.log
+
+# OS
 .DS_Store
+Thumbs.db
+"@ | Out-File -FilePath .gitignore -Encoding utf8

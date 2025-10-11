@@ -1,0 +1,7 @@
+resource_group_name    = "sentrydash-rg"
+location               = "eastus"
+app_service_plan_name  = "sentrydash-plan"
+app_name               = "sentrydash-backend"
+acr_name               = "SentryDash"
+image_name             = "sentrydash"
+image_tag              = "1.0"

@@ -1,3 +1,4 @@
+@"
 node_modules
 
 # Logs and env
@@ -6,5 +7,26 @@ npm-debug.log
 *.log
 .DS_Store
 
-# Ignore data folder for build, we will mount it instead
-data/*.json 
+# Ignore data folder for build
+data/*.json
+
+# Terraform files - don't include in container
+terraform/
+*.tf
+*.tfvars
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Git
+.git
+.gitignore
+
+# GitHub Actions
+.github/
+
+# IDE
+.vscode/
+.idea/
+"@ | Out-File -FilePath .dockerignore -Encoding utf8
