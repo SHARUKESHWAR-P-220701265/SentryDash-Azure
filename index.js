@@ -228,7 +228,7 @@ app.use((err, req, res, next) => {
 // 🔹 Start the Server
 // ------------------------------
 app.listen(port, "0.0.0.0", () =>
-  console.log(`🚀 SentryDash backend running on port ${port}`)
+  console.log(`🚀 SentryDash backend container running on port ${port}`)
 );
 
 module.exports = app; // For testing
