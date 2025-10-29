@@ -38,7 +38,7 @@ describe("SentryDash API Tests", () => {
   test("GET / should return running message", async () => {
     const res = await request(server).get("/");
     expect(res.statusCode).toBe(200);
-    expect(res.text).toMatch(/SentryDash prototype is running successfully!/);
+    expect(res.text).toMatch(/SentryDash Backend Container is running successfully!/);
   });
 
   // Get all rooms
