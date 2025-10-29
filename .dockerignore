@@ -7,8 +7,6 @@ npm-debug.log
 *.log
 .DS_Store
 
-# Ignore data folder for build
-data/*.json
 
 # Terraform files - don't include in container
 terraform/
