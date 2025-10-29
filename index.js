@@ -65,7 +65,7 @@ app.get("/health", (req, res) => res.json({ status: "ok" }));
 // Home
 app.get("/", (req, res) => {
   if (telemetryClient) telemetryClient.trackEvent({ name: "HomeAccessed" });
-  res.send("🏫 SentryDash prototype is running successfully!");
+  res.send("🏫 SentryDash Backend Container is running successfully!");
 });
 
 // Get all rooms
