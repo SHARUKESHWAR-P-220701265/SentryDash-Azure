@@ -5,7 +5,7 @@
     "block": "A",
     "type": "theory",
     "capacity": 60,
-    "currentCount": 0,
+    "currentCount": 15,
     "internetAvailable": true,
     "smartBoard": true,
     "distance": 0
@@ -38,7 +38,7 @@
     "block": "Tech Lounge",
     "type": "lab",
     "capacity": 25,
-    "currentCount": 0,
+    "currentCount": 26,
     "internetAvailable": true,
     "smartBoard": true,
     "distance": 200

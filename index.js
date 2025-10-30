@@ -58,6 +58,23 @@ app.use(express.json());
 // ------------------------------
 // 🔹 Routes
 // ------------------------------
+app.use((req, res, next) => {
+  // Allow requests from any origin (you can restrict this to specific origins in production)
+  res.header('Access-Control-Allow-Origin', '*');
+  
+  // Allow these HTTP methods
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  
+  // Allow these headers
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  next();
+});
 
 // Health check
 app.get("/health", (req, res) => res.json({ status: "ok" }));

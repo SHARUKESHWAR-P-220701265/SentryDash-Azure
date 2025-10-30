@@ -7,7 +7,7 @@ npm-debug.log
 *.log
 .DS_Store
 
-
+sentrydash-frontend/
 # Terraform files - don't include in container
 terraform/
 *.tf

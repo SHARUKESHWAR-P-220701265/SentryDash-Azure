@@ -1,0 +1,70 @@
+# ====================================
+# Node and Dependencies
+# ====================================
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# ====================================
+# Local Builds and Artifacts
+# ====================================
+dist
+build
+.cache
+coverage
+
+# ====================================
+# Environment and Config Files
+# ====================================
+.env
+*.log
+*.tmp
+
+# ====================================
+# OS and Editor Files
+# ====================================
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# ====================================
+# Git and CI/CD Files
+# ====================================
+.git
+.gitignore
+.github
+.gitattributes
+
+# ====================================
+# Terraform and Infrastructure Files
+# ====================================
+terraform/
+*.tf
+*.tfvars
+*.tfstate
+.terraform/
+.terraform.lock.hcl
+
+# ====================================
+# Backend or External Folders
+# ====================================
+../data/
+../terraform/
+../*.tf
+../*.tfvars
+../*.tfstate
+../*.tfstate.backup
+
+# ====================================
+# Keep only what’s essential
+# ====================================
+!src/
+!public/
+!index.html
+!package.json
+!vite.config.js
+!Dockerfile
+!eslint.config.js
+!README.md

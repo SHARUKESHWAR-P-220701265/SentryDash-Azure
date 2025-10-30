@@ -1,20 +1,51 @@
-# Create/update .gitignore
-@"
+# ===============================
 # Terraform
+# ===============================
 .terraform/
 *.tfstate
 *.tfstate.backup
 .terraform.lock.hcl
 
-# Node
+# ===============================
+# Node.js (Backend)
+# ===============================
 node_modules/
 npm-debug.log
-
-# Environment
 .env
 *.log
 
-# OS
+# ===============================
+# OS Files
+# ===============================
 .DS_Store
 Thumbs.db
-"@ | Out-File -FilePath .gitignore -Encoding utf8
+
+# ===============================
+# Frontend (sentrydash-frontend)
+# ===============================
+# Ignore dependencies and build outputs
+sentrydash-frontend/node_modules/
+sentrydash-frontend/dist/
+sentrydash-frontend/.env
+sentrydash-frontend/npm-debug.log
+sentrydash-frontend/yarn-error.log
+sentrydash-frontend/package-lock.json
+
+# Ignore local editor and system files
+sentrydash-frontend/.vscode/
+sentrydash-frontend/.idea/
+sentrydash-frontend/.DS_Store
+
+# Ignore logs and temporary files
+sentrydash-frontend/*.log
+sentrydash-frontend/*.tmp
+
+# But keep essential project files tracked
+!sentrydash-frontend/Dockerfile
+!sentrydash-frontend/package.json
+!sentrydash-frontend/vite.config.js
+!sentrydash-frontend/src/
+!sentrydash-frontend/public/
+!sentrydash-frontend/index.html
+!sentrydash-frontend/eslint.config.js
+!sentrydash-frontend/README.md
