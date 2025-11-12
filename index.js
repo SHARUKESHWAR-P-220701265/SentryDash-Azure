@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 // 🔹 Application Insights Setup
 // ------------------------------
 const appInsights = require("applicationinsights");
-const aiConnectionString = process.env.APPINSIGHTS_CONNECTION_STRING || "";
+const aiConnectionString = process.env.APPLICATIONINSIGHTS_CONNECTION_STRING || process.env.APPINSIGHTS_CONNECTION_STRING || "";
 
 if (!aiConnectionString) {
   console.warn("⚠️ APPINSIGHTS_CONNECTION_STRING not set. Telemetry disabled.");
