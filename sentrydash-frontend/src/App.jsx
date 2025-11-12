@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Search, Wifi, Monitor, Users, MapPin, AlertCircle } from 'lucide-react';
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://sentrydash-backend.azurewebsites.net/api';
 
 // Styles
 const styles = `
