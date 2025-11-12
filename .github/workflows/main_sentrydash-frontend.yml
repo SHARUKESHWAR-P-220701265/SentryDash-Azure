@@ -34,7 +34,7 @@ jobs:
           context: .
           push: true
           tags: sentrydash.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_92CB7F6D519941E5AC0AD46ABC41A61F }}/sentrydash/sentrydash/sentrydash-frontend:${{ github.sha }}
-          file: ./Dockerfile
+          file: .sentrydash-frontend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
