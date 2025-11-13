@@ -1,2 +1,6 @@
 Initial : Logs for the k8s deployment
-2 : Gonna add the different .yml files
+2 : frontend, backend and ingress .yaml files
+3. using the external IP to access the frontend
+
+note : 2 different pods with its own room.json(not synchronised)
+        - results in inconsistent data

@@ -4,6 +4,4 @@ metadata:
   name: sentrydash-config
   namespace: sentrydash
 data:
-  NODE_ENV: "production"
-  # this is used by apps if needed (example)
-  API_BASE_INTERNAL: "http://sentrydash-backend:3000"
+  APP_NAME: "SentryDash"

@@ -4,7 +4,7 @@ metadata:
   name: sentrydash-frontend
   namespace: sentrydash
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: sentrydash-frontend
   ports:
