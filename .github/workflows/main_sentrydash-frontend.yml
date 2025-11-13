@@ -31,10 +31,10 @@ jobs:
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./sentrydash-frontend
           push: true
           tags: sentrydash.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_D7739FE6FA77407696DD80C8707AACDD }}/sentrydash-frontend:${{ github.sha }}
-          file: ./Dockerfile
+          file: ./sentrydash-frontend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
