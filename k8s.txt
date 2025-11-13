@@ -1,1 +1,0 @@
-Initial : Logs for the k8s deployment

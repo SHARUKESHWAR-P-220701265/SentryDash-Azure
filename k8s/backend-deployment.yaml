@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentrydash-backend
+  namespace: sentrydash
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sentrydash-backend
+  template:
+    metadata:
+      labels:
+        app: sentrydash-backend
+    spec:
+      containers:
+        - name: backend
+          image: sentrydash.azurecr.io/sentrydash/sentrydash-backend:bcca0c1ce74852d5e410dedb68d499c3c0749ee8
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: sentrydash-config
+            - secretRef:
+                name: sentrydash-secrets
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+      # note: if your AKS can't pull from ACR, see imagePullSecrets section below
