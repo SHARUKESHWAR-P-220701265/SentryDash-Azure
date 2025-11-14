@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sentrydash.azurecr.io/sentrydash/sentrydash-backend:bcca0c1ce74852d5e410dedb68d499c3c0749ee8
+          image: sentrydash.azurecr.io/sentrydash/sentrydash-backend:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

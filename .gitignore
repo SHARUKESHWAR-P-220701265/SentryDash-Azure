@@ -49,3 +49,6 @@ sentrydash-frontend/*.tmp
 !sentrydash-frontend/index.html
 !sentrydash-frontend/eslint.config.js
 !sentrydash-frontend/README.md
+
+#k8s secrets
+k8s/sentrydash-secret.yaml
