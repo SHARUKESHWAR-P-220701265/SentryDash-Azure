@@ -19,6 +19,9 @@ terraform/
 
 #scripts
 scripts/
+
+#k8s deployment files
+k8s/
 # Git
 .git
 .gitignore
