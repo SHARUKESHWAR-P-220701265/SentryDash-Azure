@@ -18,7 +18,7 @@ terraform/
 .terraform.lock.hcl
 
 #scripts
-scripts
+scripts/
 # Git
 .git
 .gitignore
