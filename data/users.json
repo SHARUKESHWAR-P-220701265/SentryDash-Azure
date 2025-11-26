@@ -1,0 +1,72 @@
+[
+  {
+    "id": "U001",
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.edu",
+    "coursesEnrolled": ["CS101", "MA102"],
+    "section": "A"
+  },
+  {
+    "id": "U002",
+    "name": "Bob Smith",
+    "email": "bob.smith@example.edu",
+    "coursesEnrolled": ["MA102", "EN101"],
+    "section": "B"
+  },
+  {
+    "id": "U003",
+    "name": "Charlie Lee",
+    "email": "charlie.lee@example.edu",
+    "coursesEnrolled": ["PH101", "CS101"],
+    "section": "A"
+  },
+  {
+    "id": "U004",
+    "name": "Diana Patel",
+    "email": "diana.patel@example.edu",
+    "coursesEnrolled": ["CS101", "EN101", "PH101"],
+    "section": "B"
+  },
+  {
+    "id": "U005",
+    "name": "Ethan Brown",
+    "email": "ethan.brown@example.edu",
+    "coursesEnrolled": ["EN101"],
+    "section": "A"
+  },
+  {
+    "id": "U006",
+    "name": "Fatima Noor",
+    "email": "fatima.noor@example.edu",
+    "coursesEnrolled": ["MA102", "PH101"],
+    "section": "C"
+  },
+  {
+    "id": "U007",
+    "name": "George Wang",
+    "email": "george.wang@example.edu",
+    "coursesEnrolled": ["CS101", "EN101"],
+    "section": "A"
+  },
+  {
+    "id": "U008",
+    "name": "Hannah Kim",
+    "email": "hannah.kim@example.edu",
+    "coursesEnrolled": ["PH101", "MA102"],
+    "section": "C"
+  },
+  {
+    "id": "U009",
+    "name": "Ivan Petrov",
+    "email": "ivan.petrov@example.edu",
+    "coursesEnrolled": ["CS101", "MA102", "EN101"],
+    "section": "B"
+  },
+  {
+    "id": "U010",
+    "name": "Julia Silva",
+    "email": "julia.silva@example.edu",
+    "coursesEnrolled": ["EN101", "PH101"],
+    "section": "A"
+  }
+]

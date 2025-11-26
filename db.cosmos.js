@@ -12,52 +12,64 @@ let client;
 let database;
 let container;
 
-export async function initCosmos({ databaseId = 'sentrydash', containerId = 'rooms', partitionKey = '/id' } = {}) {
+export async function initCosmos({ databaseId = 'sentrydash' } = {}) {
   if (!endpoint || !key) {
     throw new Error('COSMOS_ENDPOINT and COSMOS_KEY must be set in environment');
   }
 
-  if (client) return { client, database, container };
+  if (client && database) return { client, database };
 
   client = new CosmosClient({ endpoint, key });
 
   const { database: db } = await client.databases.createIfNotExists({ id: databaseId });
   database = db;
 
+  // Do NOT create a default container here; use getContainer when a specific container is required.
+  return { client, database };
+}
+
+// Helper: ensure and return a container (defaults to 'new-rooms')
+async function getContainer(containerId = 'new-rooms', partitionKey = '/id') {
+  if (!endpoint || !key) {
+    throw new Error('COSMOS_ENDPOINT and COSMOS_KEY must be set in environment');
+  }
+  if (!client) client = new CosmosClient({ endpoint, key });
+  if (!database) {
+    const { database: db } = await client.databases.createIfNotExists({ id: 'sentrydash' });
+    database = db;
+  }
   const { container: coll } = await database.containers.createIfNotExists({
     id: containerId,
     partitionKey: { paths: [partitionKey], kind: 'Hash' }
   });
-
-  container = coll;
-  return { client, database, container };
+  return coll;
 }
 
 export async function getAllRooms() {
-  if (!container) await initCosmos();
-  const iterator = container.items.readAll();
+  const coll = await getContainer('new-rooms', '/id');
+  const iterator = coll.items.readAll();
   const { resources } = await iterator.fetchAll();
   return resources;
 }
 
 export async function upsertRoom(room) {
-  if (!container) await initCosmos();
+  const coll = await getContainer('new-rooms', '/id');
   if (!room.id) {
     throw new Error('room object must have an "id" property to be used as the partition key');
   }
-  const { resource } = await container.items.upsert(room);
+  const { resource } = await coll.items.upsert(room);
   return resource;
 }
 
 export async function getRoomById(id) {
-  if (!container) await initCosmos();
-  const { resource } = await container.item(id, id).read().catch(() => ({ resource: null }));
+  const coll = await getContainer('new-rooms', '/id');
+  const { resource } = await coll.item(id, id).read().catch(() => ({ resource: null }));
   return resource;
 }
 
 export async function queryRooms(query, params = []) {
-  if (!container) await initCosmos();
-  const iterator = container.items.query({ query, parameters: params });
+  const coll = await getContainer('new-rooms', '/id');
+  const iterator = coll.items.query({ query, parameters: params });
   const { resources } = await iterator.fetchAll();
   return resources;
 }
@@ -66,4 +78,57 @@ export async function closeCosmos() {
   client = undefined;
   database = undefined;
   container = undefined;
+}
+
+// Generic upsert to any container (creates container if needed)
+export async function upsertInto(containerId, doc, partitionKey = '/id') {
+  if (!endpoint || !key) {
+    throw new Error('COSMOS_ENDPOINT and COSMOS_KEY must be set in environment');
+  }
+  if (!client) client = new CosmosClient({ endpoint, key });
+  if (!database) {
+    const { database: db } = await client.databases.createIfNotExists({ id: 'sentrydash' });
+    database = db;
+  }
+  const { container: coll } = await database.containers.createIfNotExists({
+    id: containerId,
+    partitionKey: { paths: [partitionKey], kind: 'Hash' }
+  });
+  const { resource } = await coll.items.upsert(doc);
+  return resource;
+}
+
+export async function getItemFrom(containerId, id) {
+  if (!endpoint || !key) {
+    throw new Error('COSMOS_ENDPOINT and COSMOS_KEY must be set in environment');
+  }
+  if (!client) client = new CosmosClient({ endpoint, key });
+  if (!database) {
+    const { database: db } = await client.databases.createIfNotExists({ id: 'sentrydash' });
+    database = db;
+  }
+  const { container: coll } = await database.containers.createIfNotExists({
+    id: containerId,
+    partitionKey: { paths: ['/id'], kind: 'Hash' }
+  });
+  const { resource } = await coll.item(id, id).read().catch(() => ({ resource: null }));
+  return resource;
+}
+
+export async function queryFrom(containerId, query, params = []) {
+  if (!endpoint || !key) {
+    throw new Error('COSMOS_ENDPOINT and COSMOS_KEY must be set in environment');
+  }
+  if (!client) client = new CosmosClient({ endpoint, key });
+  if (!database) {
+    const { database: db } = await client.databases.createIfNotExists({ id: 'sentrydash' });
+    database = db;
+  }
+  const { container: coll } = await database.containers.createIfNotExists({
+    id: containerId,
+    partitionKey: { paths: ['/id'], kind: 'Hash' }
+  });
+  const iterator = coll.items.query({ query, parameters: params });
+  const { resources } = await iterator.fetchAll();
+  return resources;
 }

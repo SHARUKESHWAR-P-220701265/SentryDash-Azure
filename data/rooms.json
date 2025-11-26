@@ -8,7 +8,11 @@
     "currentCount": 15,
     "internetAvailable": true,
     "smartBoard": true,
-    "distance": 0
+    "location": { "x": 10, "y": 20 },
+    "schedule": [
+      { "course": "CS101", "start": "09:00", "end": "10:30" },
+      { "course": "MA102", "start": "11:00", "end": "12:30" }
+    ]
   },
   {
     "id": "A102",
@@ -16,10 +20,29 @@
     "block": "A",
     "type": "lab",
     "capacity": 30,
-    "currentCount": 0,
+    "currentCount": 5,
     "internetAvailable": true,
     "smartBoard": false,
-    "distance": 30
+    "location": { "x": 15, "y": 25 },
+    "schedule": [
+      { "course": "CS103", "start": "10:45", "end": "12:15" },
+      { "course": "CS104", "start": "13:00", "end": "14:30" }
+    ]
+  },
+  {
+    "id": "A103",
+    "name": "Seminar Room A103",
+    "block": "A",
+    "type": "theory",
+    "capacity": 40,
+    "currentCount": 0,
+    "internetAvailable": true,
+    "smartBoard": true,
+    "location": { "x": 12, "y": 30 },
+    "schedule": [
+      { "course": "EN101", "start": "09:00", "end": "10:00" },
+      { "course": "PH101", "start": "10:15", "end": "11:45" }
+    ]
   },
   {
     "id": "B201",
@@ -27,31 +50,102 @@
     "block": "B",
     "type": "theory",
     "capacity": 45,
-    "currentCount": 0,
+    "currentCount": 10,
     "internetAvailable": true,
     "smartBoard": false,
-    "distance": 100
+    "location": { "x": 50, "y": 20 },
+    "schedule": [
+      { "course": "CS201", "start": "09:30", "end": "11:00" },
+      { "course": "MA202", "start": "11:15", "end": "12:45" }
+    ]
   },
   {
-    "id": "TL01",
-    "name": "Tech Lounge 01",
-    "block": "Tech Lounge",
+    "id": "B202",
+    "name": "Physics Lab B202",
+    "block": "B",
+    "type": "lab",
+    "capacity": 35,
+    "currentCount": 8,
+    "internetAvailable": true,
+    "smartBoard": false,
+    "location": { "x": 55, "y": 25 },
+    "schedule": [
+      { "course": "PH201", "start": "10:00", "end": "11:30" },
+      { "course": "PH202", "start": "12:00", "end": "13:30" }
+    ]
+  },
+  {
+    "id": "B203",
+    "name": "Seminar Room B203",
+    "block": "B",
+    "type": "theory",
+    "capacity": 30,
+    "currentCount": 0,
+    "internetAvailable": false,
+    "smartBoard": false,
+    "location": { "x": 52, "y": 30 },
+    "schedule": [
+      { "course": "EN201", "start": "09:00", "end": "10:30" },
+      { "course": "CS202", "start": "11:00", "end": "12:30" }
+    ]
+  },
+  {
+    "id": "C301",
+    "name": "Lecture Hall C301",
+    "block": "C",
+    "type": "theory",
+    "capacity": 70,
+    "currentCount": 20,
+    "internetAvailable": true,
+    "smartBoard": true,
+    "location": { "x": 90, "y": 10 },
+    "schedule": [
+      { "course": "CS301", "start": "09:00", "end": "10:30" },
+      { "course": "MA302", "start": "11:00", "end": "12:30" }
+    ]
+  },
+  {
+    "id": "C302",
+    "name": "Chemistry Lab C302",
+    "block": "C",
     "type": "lab",
     "capacity": 25,
-    "currentCount": 26,
+    "currentCount": 5,
     "internetAvailable": true,
-    "smartBoard": true,
-    "distance": 200
+    "smartBoard": false,
+    "location": { "x": 95, "y": 15 },
+    "schedule": [
+      { "course": "CH301", "start": "10:00", "end": "11:30" },
+      { "course": "CH302", "start": "12:00", "end": "13:30" }
+    ]
   },
   {
-    "id": "IF01",
-    "name": "Idea Factory",
-    "block": "Idea Factory",
+    "id": "C303",
+    "name": "Seminar Room C303",
+    "block": "C",
+    "type": "theory",
+    "capacity": 35,
+    "currentCount": 0,
+    "internetAvailable": false,
+    "smartBoard": false,
+    "location": { "x": 92, "y": 20 },
+    "schedule": [
+      { "course": "EN301", "start": "09:00", "end": "10:30" },
+      { "course": "CS302", "start": "11:00", "end": "12:30" }
+    ]
+  },
+  {
+    "id": "C304",
+    "name": "Tech Lounge C304",
+    "block": "C",
     "type": "lab",
     "capacity": 20,
-    "currentCount": 0,
+    "currentCount": 2,
     "internetAvailable": true,
     "smartBoard": true,
-    "distance": 250
+    "location": { "x": 98, "y": 25 },
+    "schedule": [
+      { "course": "CS303", "start": "13:00", "end": "14:30" }
+    ]
   }
 ]

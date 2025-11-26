@@ -1,0 +1,72 @@
+[
+  {
+    "id": "T001",
+    "name": "Prof. Emily Carter",
+    "email": "emily.carter@example.edu",
+    "course": "CS101",
+    "section": "A"
+  },
+  {
+    "id": "T002",
+    "name": "Prof. Frank Miller",
+    "email": "frank.miller@example.edu",
+    "course": "CS101",
+    "section": "B"
+  },
+  {
+    "id": "T003",
+    "name": "Prof. Grace Kim",
+    "email": "grace.kim@example.edu",
+    "course": "MA102",
+    "section": "B"
+  },
+  {
+    "id": "T004",
+    "name": "Prof. Henry Singh",
+    "email": "henry.singh@example.edu",
+    "course": "PH101",
+    "section": "A"
+  },
+  {
+    "id": "T005",
+    "name": "Prof. Irene Chen",
+    "email": "irene.chen@example.edu",
+    "course": "EN101",
+    "section": "A"
+  },
+  {
+    "id": "T006",
+    "name": "Prof. John Doe",
+    "email": "john.doe@example.edu",
+    "course": "MA102",
+    "section": "C"
+  },
+  {
+    "id": "T007",
+    "name": "Prof. Karen Black",
+    "email": "karen.black@example.edu",
+    "course": "PH101",
+    "section": "C"
+  },
+  {
+    "id": "T008",
+    "name": "Prof. Leo Zhang",
+    "email": "leo.zhang@example.edu",
+    "course": "EN101",
+    "section": "B"
+  },
+  {
+    "id": "T009",
+    "name": "Prof. Maria Rossi",
+    "email": "maria.rossi@example.edu",
+    "course": "CS101",
+    "section": "C"
+  },
+  {
+    "id": "T010",
+    "name": "Prof. Nia Williams",
+    "email": "nia.williams@example.edu",
+    "course": "MA102",
+    "section": "A"
+  }
+]
